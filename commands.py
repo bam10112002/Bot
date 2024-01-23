@@ -1,4 +1,4 @@
-from aiogram.types import BotCommand, BotCommandScopeDefault
+from aiogram.types import BotCommand
 
 
 async def set_commands(bot):
