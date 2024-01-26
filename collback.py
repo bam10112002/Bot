@@ -1,9 +1,8 @@
+from aiogram.enums import ParseMode
 from aiogram.types import CallbackQuery
 
 from Bot.buttons import get_keyboard_all_audience, get_keyboard_contact, get_keyboard_main, get_keyboard_nav
-
-room = ['IT-1', 'IT-2', 'IT-3', 'IT-4', 'IT-5', 'IT-6', 'IT-7', 'IT-8', 'IT-9', 'IT-10', 'IT-11', 'IT-12', 'IT-13',
-        'IT-14', 'IT-15', 'IT-16', 'IT-17', 'IT-18']
+from config import room
 
 
 async def navigation(call: CallbackQuery):
@@ -23,10 +22,15 @@ async def navigation(call: CallbackQuery):
         mrkp = get_keyboard_all_audience(int(call.data.split('-')[1]))
         is_edit = True
     elif call.data == 'all_audience':
-        answer = f'Список аудиторий'
+        answer = f'Список всех локаций'
         mrkp = get_keyboard_all_audience(0)
     elif call.data == 'main':
-        answer = f'Главная'
+        answer = """
+        Добро пожаловать в бот Института №8 Московского авиационного института
+
+        Приветствую тебя! Я - ваш гид по IT-этажу Института №8. Давай я покажу тебе, что у нас есть.
+
+        """
         mrkp = get_keyboard_main()
     elif call.data == 'contact':
         answer = f'Здесь будут контакты'
