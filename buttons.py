@@ -27,10 +27,12 @@ def get_keyboard_all_audience(index=0):
     for i in range(2):
         keyboard_builder.button(text=room[index], callback_data=f'audience-{index}')
         index += 1
+        index %= 10
     keyboard_builder.adjust(2)
     for i in range(2):
         keyboard_builder.button(text=room[index], callback_data=f'audience-{index}')
         index += 1
+        index %= 10
     keyboard_builder.adjust(2)
 
     keyboard_builder.button(text='↩ Назад', callback_data=f'page_aud-{(index + 4) % 10}')
